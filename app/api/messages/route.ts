@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Message } from "@prisma/client";
-
+const dynamic = require("next/dynamic");
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
