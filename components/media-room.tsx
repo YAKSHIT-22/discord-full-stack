@@ -58,6 +58,8 @@ export const MediaRoom = ({
       connect={true}
       video={video}
       audio={audio}
+
+      className="flex-1 w-full overflow-scroll"
     >
       <VideoConference />
     </LiveKitRoom>
