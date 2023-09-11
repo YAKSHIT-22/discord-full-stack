@@ -22,14 +22,14 @@ export const MediaRoom = ({
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if (!user?.firstName || !user?.lastName) return;
-
-    const name = `${user.firstName} ${user.lastName}`;
+    if (!user?.firstName) return;
+    const name = `${user.fullName}`;
 
     (async () => {
       try {
         const resp = await fetch(`/api/livekit?room=${chatId}&username=${name}`);
         const data = await resp.json();
+        console.log(data)
         setToken(data.token);
       } catch (e) {
         console.log(e);
