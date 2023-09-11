@@ -3,7 +3,7 @@
 import { Smile } from "lucide-react";
 import Picker from "@emoji-mart/react";
 import { useTheme } from "next-themes";
-
+import dynamic from "next/dynamic";
 import {
   Popover,
   PopoverContent,
