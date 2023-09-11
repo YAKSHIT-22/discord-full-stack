@@ -173,7 +173,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               sectionType="channels"
               channelType={ChannelType.VIDEO}
               role={role}
-              label="Voice channels"
+              label="Video channels"
             />
             <div className="space-y-[2px]">
              {videoChannels.map((channel) => (

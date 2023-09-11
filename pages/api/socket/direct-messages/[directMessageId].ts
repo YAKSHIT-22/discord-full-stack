@@ -26,38 +26,36 @@ export default async function handler(
       return res.status(400).json({ error: "Conversation ID missing" });
     }
 
-    if (!directMessageId) {
-      return res.status(400).json({ error: "Direct ID missing" });
-    }
-
     const conversation = await db.conversation.findFirst({
-      where:{
+      where: {
         id: conversationId as string,
         OR: [
           {
-            memberOne:{
-              profileId: profile.id
-            },
-            memberTwo:{
-              profileId: profile.id
-            } 
+            memberOne: {
+              profileId: profile.id,
+            }
+          },
+          {
+            memberTwo: {
+              profileId: profile.id,
+            }
           }
         ]
       },
-      include:{
-        memberOne:{
-          include:{
+      include: {
+        memberOne: {
+          include: {
             profile: true,
           }
         },
-        memberTwo:{
-          include:{
+        memberTwo: {
+          include: {
             profile: true,
           }
         }
       }
     })
-    
+
     if (!conversation) {
       return res.status(404).json({ error: "Conversation not found" });
     }
@@ -137,7 +135,7 @@ export default async function handler(
       })
     }
 
-    const updateKey = `chat:${conversationId}:messages:update`;
+    const updateKey = `chat:${conversation.id}:messages:update`;
 
     res?.socket?.server?.io?.emit(updateKey, directMessage);
 
