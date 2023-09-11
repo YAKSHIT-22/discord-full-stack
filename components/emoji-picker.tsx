@@ -34,7 +34,7 @@ export const EmojiPicker = ({
           theme={resolvedTheme}
           data={async () => {
             const response = await fetch(
-            "https://cdn.jsdelivr.net/npm/@emoji-mart/data/sets/14/native.json"
+            "https://cdn.jsdelivr.net/npm/@emoji-mart/data"
             );
             
             return response.json();
