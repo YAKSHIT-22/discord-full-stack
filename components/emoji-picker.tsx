@@ -1,7 +1,6 @@
 "use client";
 
 import { Smile } from "lucide-react";
-import Picker from "@emoji-mart/react";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import {
@@ -13,7 +12,7 @@ import {
 interface EmojiPickerProps {
   onChange: (value: string) => void;
 }
-
+const Picker = dynamic(() => import('@emoji-mart/react'), { ssr: false });
 export const EmojiPicker = ({
   onChange,
 }: EmojiPickerProps) => {

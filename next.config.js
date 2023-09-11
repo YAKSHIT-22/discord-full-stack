@@ -6,6 +6,7 @@ const nextConfig = {
             "utfs.io"
         ]
     },
+  
 }
 
 module.exports = nextConfig
