@@ -6,7 +6,7 @@ const nextConfig = {
             "utfs.io"
         ]
     },
-    swcMinify: false
+    swcMinify: false,
 }
 
 module.exports = nextConfig
